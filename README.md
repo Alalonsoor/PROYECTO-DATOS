@@ -7,8 +7,10 @@ El propósito de este proyecto es realizar predicciones sobre el valor de mercad
 ## Estructura del Proyecto
 
 - **`src/`**: Contiene el código fuente del proyecto.
-- **`data/`**: Almacena datos utilizados para entrenar y evaluar el modelo.
-- **`docs/`**: Documentación adicional, si es necesaria.
+  - **`adquisicion/`**: Módulo para la adquisición de datos.
+  - **`limpieza/`**: Módulo para la limpieza y preprocesamiento de datos.
+  - **`exploracion/`**: Módulo para la exploración de datos.
+- **`.gitignore`**: Especifica los archivos y directorios que Git debe ignorar.
 - **`requirements.txt`**: Lista las librerías y la API necesarias para la extracción de datos.
 
 ## Requisitos del Sistema
@@ -33,5 +35,6 @@ Este proyecto está bajo la Licencia [MIT](./LICENSE).
 
 ## Colaboradores
 
-- [Nombre del Colaborador 1](https://github.com/colaborador1)
-- [Nombre del Colaborador 2](https://github.com/colaborador2)
+- [Álvaro Alonso Ortega](https://github.com/colaborador1)
+- [Óscar Marin Esteban](https://github.com/colaborador2)
+- [Carlos Mantilla Mateos](https://github.com/colaborador2)
