@@ -1,26 +1,30 @@
-Requisitos:
+## Requisitos
 
+Para utilizar la API de TransferMarket, sigue estas instrucciones:
 
-Instrucciones para usar la API de TransferMarket
+### Clonar el Repositorio
 
-En esta url se puede ver la informacion de la api https://transfermarkt-api.vercel.app/docs#/
+$ git clone https://github.com/felipeall/transfermarkt-api.git
 
-  # Clone the repository
-  $ git clone https://github.com/felipeall/transfermarkt-api.git
-  
-  # Go to the project's root folder
-  $ cd transfermarkt-api
-  
-  # Instantiate a Poetry virtual env
-  $ poetry shell
-  
-  # Install the dependencies
-  $ poetry install --no-root
+### Acceder al Directorio del Proyecto
 
-  set PYTHONPATH=%PYTHONPATH%;%cd%
+$ cd transfermarkt-api
 
-  # Start the API server
-  python app/main.py
+### Crear un Entorno Virtual con Poetry
 
-# Access the API local page
-  open http://localhost:8000/
+$ poetry shell
+$ poetry install --no-root
+
+### Configurar el PYTHONPATH
+
+$ export PYTHONPATH="$PYTHONPATH:$(pwd)"
+# O en sistemas Windows
+$ set PYTHONPATH=%PYTHONPATH%;%cd%
+
+### Iniciar el Servidor de la API
+
+$ python app/main.py
+
+### Acceder a la Página Local de la API
+
+Abre http://localhost:8000/ en tu navegador.
