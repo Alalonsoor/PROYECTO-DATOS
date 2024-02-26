@@ -29,6 +29,6 @@ Este proyecto está bajo la Licencia [MIT](./LICENSE).
 
 ## Colaboradores
 
-- [Álvaro Alonso Ortega](https://github.com/colaborador1)
-- [Óscar Marin Esteban](https://github.com/colaborador2)
-- [Carlos Mantilla Mateos](https://github.com/colaborador2)
+- [Álvaro Alonso Ortega](https://github.com/Alalonsoor)
+- [Óscar Marin Esteban](https://github.com/Oscmarin715)
+- [Carlos Mantilla Mateos](https://github.com/c123qw)
