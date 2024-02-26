@@ -13,12 +13,6 @@ El propósito de este proyecto es realizar predicciones sobre el valor de mercad
 - **`.gitignore`**: Especifica los archivos y directorios que Git debe ignorar.
 - **`requirements.txt`**: Lista las librerías y la API necesarias para la extracción de datos.
 
-## Requisitos del Sistema
-
-- Python 3.x
-- [Librerías especificadas en `requirements.txt`](./requirements.txt)
-- Acceso a internet para la extracción de datos de Transfermarkt
-
 ## Contribución
 
 ¡Gracias por considerar contribuir! Por favor, sigue estas pautas:
