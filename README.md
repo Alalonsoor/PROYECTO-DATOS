@@ -2,7 +2,7 @@
 
 ## Descripción
 
-El propósito de este proyecto es realizar predicciones sobre el valor de mercado de los futbolistas de La Liga (liga española) al final de la temporada 22-23. El modelo se entrena utilizando estadísticas de los jugadores de las últimas 4 temporadas. La fuente de datos proviene de Transfermarkt.
+El propósito de este proyecto es realizar predicciones sobre el valor de mercado de los futbolistas de La Liga (liga española) al final de la temporada 22-23. El modelo se entrena utilizando estadísticas de los jugadores de las últimas 4 temporadas. La fuente de datos proviene de Transfermarkt y de https://www.whoscored.com/Regions/206/Tournaments/4/Seasons/9682/Stages/22176/PlayerStatistics/Spain-LaLiga-2023-2024.
 
 ## Estructura del Proyecto
 
