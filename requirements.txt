@@ -1,31 +1,19 @@
-# Requisitos
+# Clone the repository
+  $ git clone https://github.com/felipeall/transfermarkt-api.git
+  
+  # Go to the project's root folder
+  $ cd transfermarkt-api
+  
+  # Instantiate a Poetry virtual env
+  $ poetry shell
+  
+  # Install the dependencies
+  $ poetry install --no-root
 
-Para utilizar la API de TransferMarket, sigue estas instrucciones:
+  set PYTHONPATH=%PYTHONPATH%;%cd%
 
-### Clonar el Repositorio
+  # Start the API server
+  python app/main.py
 
-```plaintext
-$ git clone https://github.com/felipeall/transfermarkt-api.git
-
-## Acceder al Directorio del Proyecto## 
-
-$ cd transfermarkt-api
-
-## Crear un Entorno Virtual con Poetry## 
-
-$ poetry shell
-$ poetry install --no-root
-
-## Configurar el PYTHONPATH## 
-
-$ export PYTHONPATH="$PYTHONPATH:$(pwd)"
-# O en sistemas Windows
-$ set PYTHONPATH=%PYTHONPATH%;%cd%
-
-## Iniciar el Servidor de la API## 
-
-$ python app/main.py
-
-## Acceder a la Página Local de la API## 
-
-Abre http://localhost:8000/ en tu navegador.
+# Access the API local page
+  open http://localhost:8000/
