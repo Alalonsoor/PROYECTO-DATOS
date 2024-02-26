@@ -7,7 +7,7 @@ El propósito de este proyecto es realizar predicciones sobre el valor de mercad
 ## Estructura del Proyecto
 
 - **`src/`**: Contiene el código fuente del proyecto.
-  - **`adquisicion/`**: Módulo para la adquisición de datos.
+  - **`adquisicion/`**: Módulo para la adquisición de datos, encontramos una muestra de los datos de WhoScored.
   - **`limpieza/`**: Módulo para la limpieza y preprocesamiento de datos.
   - **`exploracion/`**: Módulo para la exploración de datos.
 - **`.gitignore`**: Especifica los archivos y directorios que Git debe ignorar.
