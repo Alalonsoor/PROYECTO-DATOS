@@ -1,4 +1,4 @@
-## Requisitos
+# Requisitos
 
 Para utilizar la API de TransferMarket, sigue estas instrucciones:
 
