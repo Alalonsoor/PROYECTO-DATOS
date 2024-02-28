@@ -1,0 +1,21 @@
+Variables duplicadas:
+
+_x
+apps_y
+mins_y
+goals_y assists_y
+spg_y rating todas
+_y apps_x el segundo
+mins_x el segundo
+keyp_y 
+_y
+_x
+ps%_
+
+Posibles sustituciones de valores:
+
+Tras una detallada evaluación de las variables de whoscored hemos considerado que todas las variables 
+que incluyen un - las sustituiremos por 0,al menos en las de whoscored.
+
+En las de transfermarket, el único problema que tenemos es con la variable status, que tendremos que considerar que si el jugador está lesionado
+ver cuantos meses es la lesión.
