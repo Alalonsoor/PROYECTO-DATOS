@@ -10,7 +10,7 @@
   # Install the dependencies
   $ poetry install --no-root
 
-  set PYTHONPATH=%PYTHONPATH%;%cd%
+  $ export PYTHONPATH=$PYTHONPATH:$(pwd)
 
   # Start the API server
   python app/main.py
