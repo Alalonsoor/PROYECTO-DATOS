@@ -1,3 +1,9 @@
+Para poder incorporarte al proyecto, tendrás que tener instalado python, un editor de código, tipo VSCode, pyCharm...
+
+Una vez hecho esto, tendrás que ir al apartado de src y aquí tendrás los diferentes códigos utilizados para adquisición de datos y su respectiva limpieza, todas las tareas que estés haciendo, las añadiras en proyectos e irás marcando su estado, tambien en la carpeta de entregas tienes los documentos subidos explicando cada una de las verisones de este proyecto explicadas en una detallada memoria, que reflejará nuestro trabajo en código y análisis.
+
+Para la adquisición de datos de TransferMarket tendrás que seguir los siguientes pasos en tu cmd localmente:
+
 # Clone the repository
   $ git clone https://github.com/felipeall/transfermarkt-api.git
   
@@ -17,3 +23,7 @@
 
 # Access the API local page
   open http://localhost:8000/
+
+Con todo esto ya estás listo para unirte a nuestro proyecto, también, si hubiera algo en lo que estés trabado o que no te salga lo puedes marcar como issue para que los demás te podamos ayudar cuando tengamos menos carga de trabajo.
+
+Ánimo!!!
