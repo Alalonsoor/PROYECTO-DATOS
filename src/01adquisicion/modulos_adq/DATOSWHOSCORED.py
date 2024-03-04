@@ -107,5 +107,5 @@ lista_urls = ['https://www.whoscored.com/Regions/206/Tournaments/4/Seasons/7889/
            'https://www.whoscored.com/Regions/206/Tournaments/4/Seasons/9682/Stages/22176/PlayerStatistics/Spain-LaLiga-2023-2024']
 paginas = [57, 59, 61, 58, 57]
 df_final_sin_detalles = bucle_datos(lista_urls, paginas)
-df_final_sin_detalles.to_csv('ruta.csv', index=True, encoding='utf-8', sep = ';',)
+df_final_sin_detalles.to_csv('ruta.csv', index=True, encoding='utf-8', sep = ';')
 
