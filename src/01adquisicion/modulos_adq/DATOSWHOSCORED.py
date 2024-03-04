@@ -7,7 +7,7 @@ from selenium.common.exceptions import TimeoutException
 from IPython.display import HTML
 import time
 
-url_base = "https://www.whoscored.com/Regions/206/Tournaments/4/Seasons/9682/Stages/22176/PlayerStatistics/Spain-LaLiga-"
+
 def handle_cookies(driver):
     try:
         element = WebDriverWait(driver, 20).until(
@@ -18,8 +18,7 @@ def handle_cookies(driver):
     except TimeoutException:
         print('No cookies found.')
 
-
-def scrape_data_from_web(url):
+def scrape_data_from_web(url, paginas, tabla, tipo_tablas):
     # Inicializar el navegador
     driver = webdriver.Chrome()
     driver.get(url)
@@ -29,78 +28,77 @@ def scrape_data_from_web(url):
     condition = True
     data_list = []
 
-    while condition:
-        # Esperar hasta que la tabla y sus elementos estén presentes en la página
-        table = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.ID, 'top-player-stats-summary-grid'))
-        )
-        table_head = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.ID, 'player-table-statistics-head'))
-        )
-        table_body = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.ID, 'player-table-statistics-body'))
-        )
+    #Cambia de tabla si es necesario
+    if tabla != 0 :
+        next_button = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.LINK_TEXT, tipo_tablas[tabla])))
+        next_button.click() 
 
-        # Obtener todas las filas de la tabla
-        rows = table_body.find_elements(By.TAG_NAME, 'tr')
+    #Todos los jugadores
+    next_button = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.LINK_TEXT, 'All players')))
+    next_button.click()
+    
+    time.sleep(1)
 
-        # Iterar sobre las filas e imprimir los datos
-        for row in rows:
-            cells = row.find_elements(By.TAG_NAME, 'td')
-            row_data = [cell.text for cell in cells]
-            print(row_data)
-            data_list.append(row_data)
+    #Sacamos los nombres de las columnas
+    table_head = WebDriverWait(driver, 40).until(
+        EC.presence_of_element_located((By.XPATH, '/html/body/div[5]/div[5]/div[' + str(tabla+2) + ']/div[3]/div/table/thead'))
+    )
+    columnas = table_head.find_elements(By.TAG_NAME, 'th')
+    columnas_nombres = [nombre.text for nombre in columnas]
 
-        # Intentar hacer clic en el botón de siguiente página si está disponible
-        driver.execute_script("window.scrollBy(0, 750)")  # Ajusta el valor según sea necesario
+    #Sacar cada pagina de la tabla
+    while currentPage < paginas:
+                # Esperar hasta que la tabla y sus elementos estén presentes en la página
+                table_body = WebDriverWait(driver, 40).until(
+                    EC.presence_of_element_located((By.XPATH, '/html/body/div[5]/div[5]/div[' + str(tabla+2) + ']/div[3]/div/table/tbody'))
+                )
 
-        # Ahora intenta hacer clic en el botón "Next" de nuevo
+                
+                # Obtener todas las filas de la tabla
+                rows = table_body.find_elements(By.TAG_NAME, 'tr')
 
-        try:
-            next_button = WebDriverWait(driver, 20).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, f'a.option.clickable#next[data-page="{currentPage + 1}"]')))
-            next_button.click()
-            print(f"Clicked next button to page {currentPage + 1}")
-            currentPage += 1
-            time.sleep(1)  # Espera para que la página se cargue, ajusta según sea necesario
-        except TimeoutException:
-            condition = False
+                # Iterar sobre las filas e imprimir los datos
+                for row in rows:
+                    cells = row.find_elements(By.TAG_NAME, 'td')
+                    row_data = [cell.text for cell in cells]
+                    print(row_data)
+                    data_list.append(row_data)
 
-    df = pd.DataFrame(data_list,
-                      columns=["Jugador", "Vacio", "Apps", "Mins", "Goles", "Asistencias", "Amarillas", "Rojas",
-                               "Disparos/Partido", "Acierto pases", "Duelos aereos ganados", "Hombre del partido",
-                               "Rating"])
+                # Intentar hacer clic en el botón de siguiente página
+                driver.execute_script("window.scrollBy(0, 750)")  # Ajusta el valor según sea necesario
+
+                # Ahora intenta hacer clic en el botón "Next" de nuevo
+ 
+                next_button = WebDriverWait(driver, 30).until(
+                    EC.element_to_be_clickable((By.XPATH, '/html/body/div[5]/div[5]/div[' + str(tabla + 2) + ']/div[4]/div/dl[2]/dd[3]/a')))
+                next_button.click()
+                currentPage = currentPage + 1
+                print(f"Clicked next button to page {currentPage + 1}")
+                time.sleep(1)  # Espera para que la página se cargue, ajusta según sea necesario
+                
+
+    
+    df = pd.DataFrame(data_list, columns = columnas_nombres)
     print(df)
     return df
 
-# Año inicial y final (añadir +1 para incluir el año final en el rango)
-anio_inicial = 2009
-anio_final = 2023
-tablas_anios = []
+#Debemos pasarles la lista de las paginas: no son faciles de acceder desde una url base
+def bucle_datos(lista_urls):
+    tipo_tablas = ['Summary', 'Defensive', 'Offensive', 'Passing']
+    tablas = []
+    paginas = [57, 59, 61, 58, 57]
+    tablas_anios = []
+    for enlace in range(len(lista_urls)):
+        tablas = []
+        for i in range(len(tipo_tablas))
+            tablas.append(scrape_data_from_web(lista_urls[enlace], paginas[enlace], tipo_tablas[i], tipo_tablas))
+        merged_tabla = pd.merge(tablas[0], tablas[1], on= 'Player', how = 'outer')
+        merged_tabla = pd.merge(merged_tabla, tablas[2], on= 'Player', how = 'outer')
+        merged_tabla = pd.merge(merged_tabla, tablas[2], on= 'Player', how = 'outer')
+        tablas_anios.append(merged_tabla)
+    tabla_datos_principales = pd.concat(tablas_anios, ignore_index=True)
+    return tabla_datos_principales
 
-# Bucle para iterar sobre los años
-for anio in range(anio_inicial, anio_final + 1):
-    # Construir la URL completa con el año actual
-    url_actual = url_base + str(anio) + "-" + str(anio + 1)
-    datos_anio = scrape_data_from_web(url)
-    tablas_anios.append(datos_anio)
 
-
-
-
-# Llamar a la función con la URL de la página web
-
-df = scrape_data_from_web(
-    "https://www.whoscored.com/Regions/206/Tournaments/4/Seasons/9682/Stages/22176/PlayerStatistics/Spain-LaLiga-2023-2024")
-# Guardar el DataFrame como un archivo CSV
-df.to_csv('datos_jugadores_liga.csv', index=False)
-print("DataFrame guardado como 'datos_jugadores_liga.csv'")
-# Generar un enlace de descarga
-download_link = f'<a href="./datos_jugadores_liga.csv" download="datos_jugadores_liga.csv">Descargar datos como CSV</a>'
-
-# Mostrar el enlace en el cuaderno
-print(HTML(download_link))
-
-df = df.drop(columns=['Vacio']) #Sale una columa vacia por alguna razon
-print(df)
