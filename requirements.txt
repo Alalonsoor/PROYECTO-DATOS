@@ -24,6 +24,8 @@ Para la adquisición de datos de TransferMarket tendrás que seguir los siguient
 # Access the API local page
   open http://localhost:8000/
 
+También necesitaras tener instaladas la siguientes bibliotecas de python: [unidecode, fuzzywuzzy, joblib, numpy, pandas, ast, matplotlib.pyplot, seaborn, statsmodels.api, scipy.stats, pingouin]
+
 Con todo esto ya estás listo para unirte a nuestro proyecto, también, si hubiera algo en lo que estés trabado o que no te salga lo puedes marcar como issue para que los demás te podamos ayudar cuando tengamos menos carga de trabajo.
 
 Ánimo!!!
