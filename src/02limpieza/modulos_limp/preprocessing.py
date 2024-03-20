@@ -5,7 +5,7 @@ from joblib import Parallel, delayed
 import numpy as np
 import ast
 
-def preprocess_data(datos):
+def preprocess_player_stats(datos):
 
     # Función para extraer el nombre del equipo
     def f_equipo(x):
@@ -34,11 +34,4 @@ def preprocess_data(datos):
     nuevos_nombres = dict(zip(datos.columns, map(quitar_x, datos.columns)))
     datos = datos.rename(columns=nuevos_nombres)
 
-    # Leer los datos de Transfermarket
-    tf_data = pd.read_csv('TransferMarket_completo.csv')
-
-    # Preprocesamiento adicional...
-
-    # Guardar los datos preprocesados en archivos CSV
-    datos.to_csv('DatosFinalesLaLiga.csv')
-    tf_data.to_csv('TransfermarketLimpio.csv')
+    
