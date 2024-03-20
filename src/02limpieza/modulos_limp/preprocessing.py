@@ -33,5 +33,5 @@ def preprocess_player_stats(datos):
     datos = datos.replace('-', 0)
     nuevos_nombres = dict(zip(datos.columns, map(quitar_x, datos.columns)))
     datos = datos.rename(columns=nuevos_nombres)
-
+    return datos
     
