@@ -6,10 +6,6 @@ import numpy as np
 import ast
 
 def preprocess_data():
-    # Instalar las bibliotecas necesarias: unidecode, fuzzywuzzy, python-Levenshtein y joblib
-
-    # Leer los datos de la tabla 'TablaFinalSinDetalles' que contiene las estadísticas de los jugadores desde 2019-2023
-    datos = pd.read_csv("TablaFinalSinDetalles.csv", encoding='utf8', sep=';')
 
     # Función para extraer el nombre del equipo
     def f_equipo(x):
