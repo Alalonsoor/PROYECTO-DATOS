@@ -5,7 +5,7 @@ from joblib import Parallel, delayed
 import numpy as np
 import ast
 
-def preprocess_data():
+def preprocess_data(datos):
 
     # Función para extraer el nombre del equipo
     def f_equipo(x):
