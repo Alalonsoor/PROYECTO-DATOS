@@ -5,7 +5,7 @@ from joblib import Parallel, delayed
 import numpy as np
 import ast
 
-def preprocess_transfermaket (tf_data):
+def preprocess_transfermarket (tf_data):
   #Vamos a modificar la variable Anio para que coincida con la de datos
   tf_data['Anio'] = tf_data['Anio'].astype(str) + '-' + (tf_data['Anio'] + 1).astype(str)
   
