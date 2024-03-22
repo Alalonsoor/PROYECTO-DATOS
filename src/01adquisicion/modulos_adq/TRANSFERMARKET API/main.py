@@ -14,21 +14,8 @@ def main():
     api_url = "http://localhost:8000"
     la_liga_id = "ES1"
     df_transfer = getData.get_transfer_data(api_url, la_liga_id)
-    df_transfer.to_csv("transferMarket2019.csv")
-
-    # Procesar datos del mercado de transferencias por año
-    anios = {2022, 2021, 2020, 2019}
-    dfs = []
-    for anio in anios:
-        path = f"C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo Cuatrimestre/Proyecto de Datos 1/SEGUNDA ENTREGA/DATOS TRANSFERMARKET/transferMarket{anio}.csv"
-        print(path)
-        df = pd.read_csv(path, sep=",")
-        df['Anio'] = anio
-        dfs.append(df)
-
-    df_total = pd.concat(dfs)
-    df_total.to_csv("TransferMarket_completo.csv")
-    print(df_total)
+    df_transfer.to_csv("TransferMarket_completo.csv")
+    print(df_transfer)
 
 
 if __name__ == "__main__":
