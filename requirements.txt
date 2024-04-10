@@ -1,31 +1,17 @@
 # ------ Requirements Personalizados Sin Versión------
 # Para incorporarte al proyecto, necesitarás tener Python, un editor de código como VSCode o pyCharm instalado.
 
-# La Adquisición de Datos de TransferMarket requiere seguir los siguientes pasos en tu cmd local:
-# Clonar el repositorio
-# $ git clone https://github.com/felipeall/transfermarkt-api.git
-# Ir a la carpeta raíz del proyecto
-# $ cd transfermarkt-api
-# Instanciar un entorno virtual con Poetry
-# $ poetry shell
-# Instalar las dependencias
-# $ poetry install --no-root
-# $ export PYTHONPATH=$PYTHONPATH:$(pwd)
-# Iniciar el servidor de la API
-# python app/main.py
-# Acceder a la página local de la API
-# open http://localhost:8000/
-
 # Bibliotecas necesarias:
-pandas
-requests
-selenium
-time
-joblib
-numpy
-ast
-fuzzywuzzy
-matplotlib
-seaborn
-statsmodels
-spicy
+# ast, incluida en python
+# time, incluida en python
+pandas 2.1.4
+requests 2.31.0
+selenium 4.19.0
+joblib 1.2.0
+numpy 1.26.4
+fuzzywuzzy 0.18.0
+matplotlib 3.8.0
+seaborn 0.12.2
+statsmodels 0.14.0
+spicy 0.16.0
+scikit-learn 1.2.2
