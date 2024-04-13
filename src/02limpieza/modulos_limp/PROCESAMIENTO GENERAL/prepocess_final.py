@@ -170,14 +170,14 @@ def prepocess_final(df_concatenado):
       'Elche': 26
   }
   
-  def aplicar_mapeo(diccionario, mapeo):
-    return {mapeo.get(key, key): value for key, value in diccionario.items()}
+  def aplicar_mapeo(diccionario):
+    return {valor: clave for clave, valor in diccionario.items()}
 
   # Aplicar el mapeo a cada diccionario de datos
-  data_2022_nombres_mapped = aplicar_mapeo(data_2022_nombres, equipo_mapping_inverse)
-  data_2021_nombres_mapped = aplicar_mapeo(data_2021_nombres, equipo_mapping_inverse)
-  data_2020_nombres_mapped = aplicar_mapeo(data_2020_nombres, equipo_mapping_inverse)
-  data_2019_nombres_mapped = aplicar_mapeo(data_2019_nombres, equipo_mapping_inverse)
+  data_2022_nombres_mapped = aplicar_mapeo(data_2022_nombres)
+  data_2021_nombres_mapped = aplicar_mapeo(data_2021_nombres)
+  data_2020_nombres_mapped = aplicar_mapeo(data_2020_nombres)
+  data_2019_nombres_mapped = aplicar_mapeo(data_2019_nombres)
   
   combined_data_mapped = {
       '2022-2023': data_2022_nombres_mapped,
@@ -192,7 +192,7 @@ def prepocess_final(df_concatenado):
   df_concatenado = df_concatenado.rename(columns={'Equipo_x': 'Equipo'})
   
   # Creamos una nueva variable 'Equipo_pos' que representa la posicion en la que quedo el equipo en eque jugaba un jugador un año en particular  
-  df_concatenado['Equipo_pos'] = df_concatenado.apply(lambda row: combined_data[row['año']][row['Equipo']], axis=1)
+  df_concatenado['Equipo_pos'] = df_concatenado.apply(lambda row: df_concatenado[row['año']][row['Equipo']], axis=1)
   
   # Eliminamos estasa columna ya que contienen muy pocos datos útiles
   df_concatenado = df_concatenado.drop(['status', 'joined','joinedOn','signedFrom'], axis = 1)

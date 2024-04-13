@@ -1,9 +1,8 @@
 import pandas as pd
 from pymongo import MongoClient
-from pathlib import Path
 
-def cargar_datos_desde_csv():
-    path = Path(__file__).parent / "../data/Datos finales LaLiga.csv"
+
+def cargar_datos_desde_csv(path):
     df = pd.read_csv(path)
     df.set_index('id', inplace=True)
     return df

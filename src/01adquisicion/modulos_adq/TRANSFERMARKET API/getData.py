@@ -1,5 +1,7 @@
 import pandas as pd
 import requests
+from pymongo import MongoClient
+
 
 def get_transfer_data(api_url, la_liga_id):
     

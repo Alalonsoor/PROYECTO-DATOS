@@ -17,6 +17,6 @@ def preprocess_transfermarket (tf_data):
   tf_data = tf_data.dropna(subset=['marketValue'], axis=0)
   
   #Como vamos a hacer la predicción del valor de los jugadores de la temporada anterior podemos eliminar los datos de la temporada actual 
-  datos = datos[datos['año'] != '2023-2024']
+  datos = tf_data[tf_data['año'] != '2023-2024']
 
   return tf_data

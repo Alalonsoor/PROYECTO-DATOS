@@ -1,14 +1,23 @@
-import pandas as pd
-from pymongo import MongoClient
-import procesamiento_bd
 import conexion_bd
 import eliminacion_val_dup
 import tratamiento_df
-
+import cargarGDrive
 
 def main():
+    # Ruta al archivo que contiene la información de los archivos a descargar
+    ruta_archivo_info = "info_archivos_GDrive.txt"
+
+    # Obtenemos la lista con la info de los archivos del fichero
+    archivos_a_descargar = cargarGDrive.procesar_archivo_info(ruta_archivo_info)
+
+    # Descargamos cada archivo de la lista
+    for id_archivo, nombre_archivo, directorio_destino in archivos_a_descargar:
+        nombre_archivo_descargado, ruta_archivo_guardado = cargarGDrive.descargar_archivo_directo(id_archivo, directorio_destino,
+                                                                                                  nombre_archivo)
+        print(f"Archivo {nombre_archivo_descargado} guardado en: {ruta_archivo_guardado}")
+
     # Cargar datos desde el archivo CSV
-    df = conexion_bd.cargar_datos_desde_csv()
+    df = conexion_bd.cargar_datos_desde_csv(ruta_archivo_guardado)
 
     # Conectar a la base de datos
     db = conexion_bd.conectar_a_base_de_datos()
