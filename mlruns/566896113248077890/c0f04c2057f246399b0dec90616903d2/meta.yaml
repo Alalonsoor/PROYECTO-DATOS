@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/c0f04c2057f246399b0dec90616903d2/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: c0f04c2057f246399b0dec90616903d2
+run_name: caring-asp-420
+run_uuid: c0f04c2057f246399b0dec90616903d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713121863603
+status: 1
+tags: []
+user_id: Usuario

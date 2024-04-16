@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/ea25e0088ef748f08ed7c8be205a6364/artifacts
+end_time: 1713123767855
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: ea25e0088ef748f08ed7c8be205a6364
+run_name: luxuriant-chimp-284
+run_uuid: ea25e0088ef748f08ed7c8be205a6364
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713123767684
+status: 4
+tags: []
+user_id: Usuario

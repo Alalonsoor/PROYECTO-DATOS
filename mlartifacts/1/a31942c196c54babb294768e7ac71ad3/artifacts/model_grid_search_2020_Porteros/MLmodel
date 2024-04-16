@@ -1,0 +1,20 @@
+artifact_path: model_grid_search_2020_Porteros
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 2.11.3
+model_size_bytes: 2527
+model_uuid: 6235ae0722b144dd9e472a86e33eb836
+run_id: a31942c196c54babb294768e7ac71ad3
+utc_time_created: '2024-04-15 11:13:48.176108'

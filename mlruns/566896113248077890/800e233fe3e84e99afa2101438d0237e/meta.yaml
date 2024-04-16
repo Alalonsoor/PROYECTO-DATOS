@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/800e233fe3e84e99afa2101438d0237e/artifacts
+end_time: 1713123874820
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: 800e233fe3e84e99afa2101438d0237e
+run_name: calm-croc-85
+run_uuid: 800e233fe3e84e99afa2101438d0237e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713123874658
+status: 4
+tags: []
+user_id: Usuario

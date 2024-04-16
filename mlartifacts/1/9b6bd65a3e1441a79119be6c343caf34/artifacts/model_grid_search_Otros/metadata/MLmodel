@@ -1,0 +1,20 @@
+artifact_path: model_grid_search_Otros
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 2.11.3
+model_size_bytes: 22117
+model_uuid: 0809ac850ff54c8cb13937149f146b7b
+run_id: 9b6bd65a3e1441a79119be6c343caf34
+utc_time_created: '2024-04-15 12:20:12.886236'

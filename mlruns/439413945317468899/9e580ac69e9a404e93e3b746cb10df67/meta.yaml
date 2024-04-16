@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/439413945317468899/9e580ac69e9a404e93e3b746cb10df67/artifacts
+deleted_time: 1713114579156
+end_time: 1713113745922
+entry_point_name: ''
+experiment_id: '439413945317468899'
+lifecycle_stage: deleted
+run_id: 9e580ac69e9a404e93e3b746cb10df67
+run_name: powerful-goat-527
+run_uuid: 9e580ac69e9a404e93e3b746cb10df67
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713112276416
+status: 4
+tags: []
+user_id: Usuario

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/3008614178ec4e68a90b4af9853a035d/artifacts
+end_time: 1713123907192
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: 3008614178ec4e68a90b4af9853a035d
+run_name: bouncy-zebra-45
+run_uuid: 3008614178ec4e68a90b4af9853a035d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713123907035
+status: 4
+tags: []
+user_id: Usuario

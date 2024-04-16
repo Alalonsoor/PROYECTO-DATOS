@@ -48,21 +48,14 @@ Todo esto dentro de dos bucles: uno que se encarga de sacar todas las tablas per
 
 ## Entrenamiento de los modelos
 
-Para la predicción de los datos, procederemos a entrenar los modelos según varias técnicas, ajustando lo mejor posible tanto los hiperparámetros como la selección de variables según sea necesario:
+Para la predicción de los datos, procederemos a entrenar los modelos según varias técnicas:
 
 1. Regresión Lineal
 2. Árboles
 3. Redes Neuronales
 
-Hay hecho un profundo análisis para elegir la mejor combinación de los datos, todo junto, separado en posiciones o separado entre años.
+Hay hecho un profundo análisis para elegir la mejor combinación de los datos, todo junto, separado en posiciones, separado entre años...
 
-#### Evaluación de Modelos
-
-Las pruebas realizadas con cada modelo se guardarán en MLFlow, teniendo registrados los diferentes modelos a utilizar, y para cada uno de ellos las pruebas realizadas. Estas pruebas se guardará en una base de datos de SQLite.
-
-El servidor se levantará con el siguiente comando: mlflow ui --port 5000 --backend-store-uri sqlite:///mlruns.db. 
-
-A partir de aquí, abriendo la siguiente URL: http://127.0.0.1:5000, se podrá acceder a las pruebas realizadas.
 
 ## Estructura del Proyecto
 
@@ -70,7 +63,6 @@ A partir de aquí, abriendo la siguiente URL: http://127.0.0.1:5000, se podrá a
   - **`adquisicion/`**: Módulo para la adquisición de datos.
   - **`limpieza/`**: Módulo para la limpieza y preprocesamiento de datos.
   - **`exploracion/`**: Módulo para la exploración de datos.
-  - **`entrenamiento/`**: Módulo con las pruebas realizadas para entrenar cada modelo.
 - **`.gitignore`**: Especifica los archivos y directorios que Git debe ignorar.
 - **`requirements.txt`**: Lista las librerías con sus versiones
 

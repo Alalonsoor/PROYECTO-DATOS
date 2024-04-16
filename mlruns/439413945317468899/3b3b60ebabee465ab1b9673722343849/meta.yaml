@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/439413945317468899/3b3b60ebabee465ab1b9673722343849/artifacts
+deleted_time: 1713114584061
+end_time: 1713111573711
+entry_point_name: ''
+experiment_id: '439413945317468899'
+lifecycle_stage: deleted
+run_id: 3b3b60ebabee465ab1b9673722343849
+run_name: able-duck-309
+run_uuid: 3b3b60ebabee465ab1b9673722343849
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713111112268
+status: 4
+tags: []
+user_id: Usuario

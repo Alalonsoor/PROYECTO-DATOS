@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/9addee76c1f14719b5b1aeddc58c44fa/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: 9addee76c1f14719b5b1aeddc58c44fa
+run_name: blushing-hare-898
+run_uuid: 9addee76c1f14719b5b1aeddc58c44fa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713121508458
+status: 1
+tags: []
+user_id: Usuario

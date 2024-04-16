@@ -1,0 +1,20 @@
+artifact_path: model_Medios
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 2.11.3
+model_size_bytes: 64621
+model_uuid: 193a805210dc45f89cf83c4abb705283
+run_id: bcdbe53e7d26460789792e68a514ee24
+utc_time_created: '2024-04-16 22:24:44.978828'

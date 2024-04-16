@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/6d5791d1b9b640c7aea41e52202c7645/artifacts
+end_time: 1713121551137
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: 6d5791d1b9b640c7aea41e52202c7645
+run_name: wise-mule-720
+run_uuid: 6d5791d1b9b640c7aea41e52202c7645
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713121404949
+status: 4
+tags: []
+user_id: Usuario

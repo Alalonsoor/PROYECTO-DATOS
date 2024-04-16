@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/cac30558f3db49879a48e1ccfcf74ca4/artifacts
+end_time: 1713121202131
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: cac30558f3db49879a48e1ccfcf74ca4
+run_name: inquisitive-shoat-70
+run_uuid: cac30558f3db49879a48e1ccfcf74ca4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713121049198
+status: 3
+tags: []
+user_id: Usuario

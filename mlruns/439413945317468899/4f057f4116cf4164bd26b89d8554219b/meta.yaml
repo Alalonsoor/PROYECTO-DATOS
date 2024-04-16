@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/439413945317468899/4f057f4116cf4164bd26b89d8554219b/artifacts
+end_time: 1713116878155
+entry_point_name: ''
+experiment_id: '439413945317468899'
+lifecycle_stage: active
+run_id: 4f057f4116cf4164bd26b89d8554219b
+run_name: omniscient-fawn-426
+run_uuid: 4f057f4116cf4164bd26b89d8554219b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713113908429
+status: 4
+tags: []
+user_id: Usuario

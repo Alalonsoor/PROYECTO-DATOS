@@ -1,0 +1,20 @@
+artifact_path: model_grid_search_2020_Defensas
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 2.11.3
+model_size_bytes: 4834
+model_uuid: 8296ce52e70f49c6bad93685f433640a
+run_id: d0a0f6aa44ac41f590b33fad5b6b12ec
+utc_time_created: '2024-04-15 11:13:55.816490'

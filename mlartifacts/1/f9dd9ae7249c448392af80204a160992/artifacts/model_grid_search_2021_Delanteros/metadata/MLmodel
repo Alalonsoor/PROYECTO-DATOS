@@ -1,0 +1,20 @@
+artifact_path: model_grid_search_2021_Delanteros
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 2.11.3
+model_size_bytes: 6418
+model_uuid: 1035ef8e0c7f4b6e840cba232d34282c
+run_id: f9dd9ae7249c448392af80204a160992
+utc_time_created: '2024-04-15 11:13:59.881022'

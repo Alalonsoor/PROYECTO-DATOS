@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/566896113248077890/56cd5201b2c34e98b854e42ea009a7a8/artifacts
+end_time: 1713121489616
+entry_point_name: ''
+experiment_id: '566896113248077890'
+lifecycle_stage: active
+run_id: 56cd5201b2c34e98b854e42ea009a7a8
+run_name: persistent-panda-503
+run_uuid: 56cd5201b2c34e98b854e42ea009a7a8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713121479983
+status: 4
+tags: []
+user_id: Usuario

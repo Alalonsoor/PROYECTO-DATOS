@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/Proyecto%20de%20Datos%201/PROYECTO-DATOS/src/entrenamiento%20modelos/arboles/mlruns/0/cc178c45f29843c88f4ba7309788b5ef/artifacts
+end_time: 1713284950199
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cc178c45f29843c88f4ba7309788b5ef
+run_name: evaluación_con_hiperparámetros
+run_uuid: cc178c45f29843c88f4ba7309788b5ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713284945740
+status: 3
+tags: []
+user_id: Usuario

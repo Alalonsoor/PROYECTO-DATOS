@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/439413945317468899/1618d5d5fd9c471bb38357741441766a/artifacts
+deleted_time: 1713114572375
+end_time: 1713113852917
+entry_point_name: ''
+experiment_id: '439413945317468899'
+lifecycle_stage: deleted
+run_id: 1618d5d5fd9c471bb38357741441766a
+run_name: abrasive-ray-70
+run_uuid: 1618d5d5fd9c471bb38357741441766a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713112875515
+status: 4
+tags: []
+user_id: Usuario
