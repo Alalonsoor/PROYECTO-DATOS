@@ -1,9 +1,3 @@
-# ------ Requirements Personalizados Sin Versión------
-# Para incorporarte al proyecto, necesitarás tener Python, un editor de código como VSCode o pyCharm instalado.
-
-# Bibliotecas necesarias:
-# ast, incluida en python
-# time, incluida en python
 pandas 2.1.4
 requests 2.31.0
 selenium 4.19.0
