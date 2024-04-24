@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/PROYECTO-DATOS/src/entrenamiento%20modelos/regresion%20lineal/mlruns/0/1860250234704e878a5140fb94ab1970/artifacts
+end_time: 1713799863471
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1860250234704e878a5140fb94ab1970
+run_name: EVALUACIÓN CON TODAS LAS VARIABLES
+run_uuid: 1860250234704e878a5140fb94ab1970
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713799863303
+status: 3
+tags: []
+user_id: Usuario
