@@ -42,7 +42,7 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
         print(f"Archivo {nombre_archivo_descargado} guardado en: {ruta_archivo_guardado}")
     import pandas as pd
 
-    df = pd.read_csv(r"C:\Users\Usuario\Downloads\Datos_la_liga_preparados_entrenamiento.csv")
+    df = pd.read_csv(ruta_archivo_guardado)
     # Resetear el índice del DataFrame original
     df.reset_index(drop=True, inplace=True)
     df_original = df.copy()
