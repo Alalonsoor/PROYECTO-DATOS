@@ -42,7 +42,7 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
         print(f"Archivo {nombre_archivo_descargado} guardado en: {ruta_archivo_guardado}")
     import pandas as pd
 
-    df = pd.read_csv(ruta_archivo_guardado)
+    df = pd.read_parquet(ruta_archivo_guardado, engine = "pyarrow")
     # Resetear el índice del DataFrame original
     df.reset_index(drop=True, inplace=True)
     df_original = df.copy()
