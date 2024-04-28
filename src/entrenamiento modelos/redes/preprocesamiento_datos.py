@@ -161,5 +161,5 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
     X_train = X_train.drop(columns=['Año_natural'])
     X_val = X_val.drop(columns=['Año_natural'])
     X_test = X_test.drop(columns=['Año_natural'])
-
-    return X_train, X_val, X_test, y_train, y_val, y_test
+    RANDOM_STATE = 83
+    return X_train, X_val, X_test, y_train, y_val, y_test, RANDOM_STATE

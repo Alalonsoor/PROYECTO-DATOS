@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/PROYECTO-DATOS/src/entrenamiento%20modelos/regresion%20lineal/mlruns/0/7f1a0eea878448b8934c2cd929670f16/artifacts
+end_time: 1714296673745
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7f1a0eea878448b8934c2cd929670f16
+run_name: MODEL 17 FEATURES
+run_uuid: 7f1a0eea878448b8934c2cd929670f16
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714296673668
+status: 3
+tags: []
+user_id: Usuario

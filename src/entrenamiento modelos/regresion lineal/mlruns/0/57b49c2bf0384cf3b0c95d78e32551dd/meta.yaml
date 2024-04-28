@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/PROYECTO-DATOS/src/entrenamiento%20modelos/regresion%20lineal/mlruns/0/57b49c2bf0384cf3b0c95d78e32551dd/artifacts
+end_time: 1714301835472
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 57b49c2bf0384cf3b0c95d78e32551dd
+run_name: MODELO FINAL SIN ESCALAR
+run_uuid: 57b49c2bf0384cf3b0c95d78e32551dd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714301835451
+status: 3
+tags: []
+user_id: Usuario

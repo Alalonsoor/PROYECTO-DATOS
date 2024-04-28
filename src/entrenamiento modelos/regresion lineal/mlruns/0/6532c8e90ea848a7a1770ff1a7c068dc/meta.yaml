@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/PROYECTO-DATOS/src/entrenamiento%20modelos/regresion%20lineal/mlruns/0/6532c8e90ea848a7a1770ff1a7c068dc/artifacts
+end_time: 1714302463557
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6532c8e90ea848a7a1770ff1a7c068dc
+run_name: FINAL MODEL FEATURE SELECTION
+run_uuid: 6532c8e90ea848a7a1770ff1a7c068dc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714302463521
+status: 3
+tags: []
+user_id: Usuario

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/Proyecto%20de%20Datos%201/PROYECTO-DATOS/src/entrenamiento%20modelos/redes/mlruns/0/b01c1d1edf8c4abaa3e747f9df6934ad/artifacts
+end_time: 1714329186465
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b01c1d1edf8c4abaa3e747f9df6934ad
+run_name: evaluación_modelo_escalado_hiperparametros
+run_uuid: b01c1d1edf8c4abaa3e747f9df6934ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714329185093
+status: 4
+tags: []
+user_id: Usuario

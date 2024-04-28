@@ -71,11 +71,11 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
 
         # Combina los DataFrames escalados y no escalados
         df = pd.concat([df_numeric_scaled, df_exclude_market_value], axis=1)
-
+        df = df.drop(columns = ["nationality"], axis = 1)
     from sklearn.preprocessing import OneHotEncoder
     import pandas as pd
 
-    variables = ['Equipo', 'position', 'nationality']
+    variables = ['Equipo', 'position']
 
     # Inicializar el codificador one-hot
     # Nota: A partir de sklearn 1.0, la salida por defecto es densa, por lo que no es necesario sparse=False.
@@ -107,29 +107,11 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
          'Equipo_Elche CF', 'Equipo_FC Barcelona', 'Equipo_Getafe CF', 'Equipo_Girona FC', 'Equipo_Granada CF',
          'Equipo_Levante UD', 'Equipo_RCD Espanyol Barcelona', 'Equipo_RCD Mallorca', 'Equipo_Rayo Vallecano',
          'Equipo_Real Betis Balompié', 'Equipo_Real Madrid', 'Equipo_Real Sociedad', 'Equipo_Real Valladolid CF',
-         'Equipo_SD Eibar', 'Equipo_SD Huesca', 'Equipo_Sevilla FC', 'Equipo_UD Almería', 'Equipo_Valencia CF',
+         'Equipo_SD Huesca', 'Equipo_Sevilla FC', 'Equipo_UD Almería', 'Equipo_Valencia CF',
          'Equipo_Villarreal CF', 'position_Attacking Midfield', 'position_Central Midfield', 'position_Centre-Back',
          'position_Centre-Forward', 'position_Defensive Midfield', 'position_Goalkeeper', 'position_Left Midfield',
-         'position_Left Winger', 'position_Left-Back', 'position_Right Winger', 'position_Right-Back',
-         'position_Second Striker', 'nationality_Albania', 'nationality_Algeria', 'nationality_Angola',
-         'nationality_Argentina', 'nationality_Armenia', 'nationality_Australia', 'nationality_Austria',
-         'nationality_Belgium', 'nationality_Bosnia-Herzegovina', 'nationality_Brazil', 'nationality_Cameroon',
-         'nationality_Canada', 'nationality_Cape Verde', 'nationality_Central African Republic', 'nationality_Chile',
-         'nationality_Colombia', 'nationality_Costa Rica', 'nationality_Cote d\'Ivoire', 'nationality_Croatia',
-         'nationality_Czech Republic', 'nationality_DR Congo', 'nationality_Denmark', 'nationality_Dominican Republic',
-         'nationality_Ecuador', 'nationality_England', 'nationality_Equatorial Guinea', 'nationality_France',
-         'nationality_Gabon', 'nationality_Georgia', 'nationality_Germany', 'nationality_Ghana', 'nationality_Greece',
-         'nationality_Guadeloupe', 'nationality_Guinea', 'nationality_Guinea-Bissau', 'nationality_Ireland',
-         'nationality_Israel', 'nationality_Italy', 'nationality_Japan', 'nationality_Kosovo', 'nationality_Mali',
-         'nationality_Martinique', 'nationality_Mauritania', 'nationality_Mexico', 'nationality_Montenegro',
-         'nationality_Morocco', 'nationality_Netherlands', 'nationality_Nigeria', 'nationality_North Macedonia',
-         'nationality_Norway', 'nationality_Paraguay', 'nationality_Peru', 'nationality_Poland', 'nationality_Portugal',
-         'nationality_Romania', 'nationality_Russia', 'nationality_Scotland', 'nationality_Senegal', 'nationality_Serbia',
-         'nationality_Slovakia', 'nationality_Slovenia', 'nationality_Spain', 'nationality_Sweden',
-         'nationality_Switzerland',
-         'nationality_The Gambia', 'nationality_Türkiye', 'nationality_Ukraine', 'nationality_United States',
-         'nationality_Uruguay', 'nationality_Venezuela', 'nationality_Wales', 'nationality_Zambia', 'nationality_Zimbabwe',
-         'marketValue']
+         'position_Left Winger', 'position_Left-Back', 'position_Right Winger', 'position_Right-Back'
+         ]
 
     # Reordenar las columnas
     datos = df1[c]
@@ -143,7 +125,6 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
         X = datos[variables_X]
         y = datos.iloc[:, -1]
         variables_X.remove('Año_natural')
-        print(variables_X)
 
     # Segunda partición para obtener conjuntos de entrenamiento y validación
     X_train_val = X[(X['Año_natural'] >= 2019) & (X['Año_natural'] != 2022)]
@@ -161,5 +142,5 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
     X_train = X_train.drop(columns=['Año_natural'])
     X_val = X_val.drop(columns=['Año_natural'])
     X_test = X_test.drop(columns=['Año_natural'])
-
-    return X_train, X_val, X_test, y_train, y_val, y_test
+    RANDOM_STATE = 83
+    return X_train, X_val, X_test, y_train, y_val, y_test, RANDOM_STATE

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/PROYECTO-DATOS/src/entrenamiento%20modelos/regresion%20lineal/mlruns/0/ffcce9c7d1914135a0a3076fa01d5f22/artifacts
+end_time: 1714302766866
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ffcce9c7d1914135a0a3076fa01d5f22
+run_name: MODELO FINAL ESCALADO
+run_uuid: ffcce9c7d1914135a0a3076fa01d5f22
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714302766844
+status: 3
+tags: []
+user_id: Usuario
