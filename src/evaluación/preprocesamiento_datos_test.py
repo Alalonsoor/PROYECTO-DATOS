@@ -1,5 +1,7 @@
 import requests
 import os
+from sklearn.preprocessing import StandardScaler
+
 def descargar_archivo_directo(id_archivo, directorio_destino, archivo_destino):
     # Construye la URL de descarga directa utilizando el ID del archivo
     url = f"https://drive.google.com/uc?export=download&id={id_archivo}"
@@ -28,9 +30,9 @@ def procesar_archivo_info(ruta_archivo_info):
             archivos_info.append((id_archivo, nombre_archivo, directorio_destino))
     return archivos_info
 
-def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
+def preprocesamiento(arbol: bool, variables_X: list, lineal: bool, scaler:StandardScaler):
     # Ruta al archivo que contiene la información de los archivos a descargar
-    ruta_archivo_info = "info_archivos_GDrive.txt"
+    ruta_archivo_info = "info_archivos_GDrive_test.txt"
 
     # Obtenemos la lista con la info de los archivos del fichero
     archivos_a_descargar = procesar_archivo_info(ruta_archivo_info)
@@ -42,34 +44,38 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
         print(f"Archivo {nombre_archivo_descargado} guardado en: {ruta_archivo_guardado}")
     import pandas as pd
 
-    df = pd.read_csv(r"C:\Users\Usuario\Downloads\test.csv")
+    df = pd.read_parquet(ruta_archivo_guardado, engine = "pyarrow")
     # Resetear el índice del DataFrame original
     df.reset_index(drop=True, inplace=True)
     df_original = df.copy()
     df = df.drop(['Anio', 'Player', 'id'], axis=1)
+    if arbol != True:
+        import pandas as pd
+        df = df.drop(["Unnamed: 0", "Rating"], axis=1)
+        col = ['Mins', 'Goals', 'Assists', 'Yel', 'Red', 'SpG', 'PS%', 'AerialsWon',
+               'MotM', 'Tackles', 'Inter', 'Fouls', 'Offsides', 'Clear', 'DeffDrb',
+               'Blocks', 'OwnG', 'KeyP', 'OffDrb', 'Fouled', 'Disp', 'UnsTch', 'AvgP',
+               'Crosses', 'LongB', 'ThrB', 'Equipo', 'position', 'age', 'nationality',
+               'height', 'marketValue', 'Año_natural', 'Titularidades', 'Suplencias',
+               'Equipo_pos', '1_año_anterior', '2_año_anterior', '3_año_anterior',
+               '4_año_anterior', '5_año_anterior']
+        df = df[col]
+        # Identifica todas las columnas numéricas excepto 'marketValue'
+        numeric_columns = df.select_dtypes(include=['int', 'float']).columns
+        numeric_columns_to_scale = numeric_columns.drop(['marketValue', 'Año_natural'])
 
-    import pandas as pd
-    from sklearn.preprocessing import StandardScaler
+        # DataFrame con solo las columnas numéricas que deseas escalar
+        df_numeric_to_scale = df[numeric_columns_to_scale]
 
-    # Identifica todas las columnas numéricas excepto 'marketValue'
-    numeric_columns = df.select_dtypes(include=['int', 'float']).columns
-    numeric_columns_to_scale = numeric_columns.drop(['marketValue', 'Año_natural'])
+        # DataFrame con la columna 'marketValue' y otras columnas no numéricas
+        df_exclude_market_value = df.drop(numeric_columns_to_scale, axis=1)
+        df_numeric_scaled = scaler.transform(df_numeric_to_scale)
 
-    # DataFrame con solo las columnas numéricas que deseas escalar
-    df_numeric_to_scale = df[numeric_columns_to_scale]
+        # Convierte el array numpy a un DataFrame
+        df_numeric_scaled = pd.DataFrame(df_numeric_scaled, columns=numeric_columns_to_scale)
 
-    # DataFrame con la columna 'marketValue' y otras columnas no numéricas
-    df_exclude_market_value = df.drop(numeric_columns_to_scale, axis=1)
-
-    # Aplica StandardScaler a las columnas numéricas que deseas escalar
-    scaler = StandardScaler()
-    df_numeric_scaled = scaler.fit_transform(df_numeric_to_scale)
-
-    # Convierte el array numpy a un DataFrame
-    df_numeric_scaled = pd.DataFrame(df_numeric_scaled, columns=numeric_columns_to_scale, index=df.index)
-
-    # Combina los DataFrames escalados y no escalados
-    df = pd.concat([df_numeric_scaled, df_exclude_market_value], axis=1)
+        # Combina los DataFrames escalados y no escalados
+        df = pd.concat([df_numeric_scaled, df_exclude_market_value], axis=1)
 
     from sklearn.preprocessing import OneHotEncoder
     import pandas as pd
@@ -96,7 +102,8 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
     # Eliminar las columnas originales de las variables categóricas
     df = df.drop(variables, axis=1)
     df1 = df[df['marketValue'] < 80000000].copy()
-    c = columnas_lista = ["Unnamed: 0", "Mins", "Goals", "Assists", "Yel", "Red", "SpG", "PS%", "AerialsWon", "MotM", "Rating",
+
+    c = columnas_lista = ["Mins", "Goals", "Assists", "Yel", "Red", "SpG", "PS%", "AerialsWon", "MotM",
                           "Tackles", "Inter", "Fouls", "Offsides", "Clear", "DeffDrb", "Blocks", "OwnG", "KeyP", "Fouled", "OffDrb",
                           "Disp", "UnsTch", "AvgP", "Crosses", "LongB", "ThrB", "age", "height", "Titularidades", "Suplencias",
                           "Equipo_pos", "1_año_anterior", "2_año_anterior", "3_año_anterior", "4_año_anterior", "5_año_anterior",
@@ -122,9 +129,13 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
                           "nationality_United States", "nationality_Uruguay", "nationality_Venezuela"]
 
     # Reordenar las columnas
+
     datos = df1[c]
     datos = datos.reset_index()
-    datos = datos.drop('index', axis=1)
+    col = datos.pop('marketValue')
+    # Inserta la columna en la última posición
+    datos.insert(len(datos.columns), 'marketValue', col)
+
     if lineal == False:
         X = datos.iloc[:, :-1]
         y = datos.iloc[:, -1]

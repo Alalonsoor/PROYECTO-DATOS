@@ -42,34 +42,41 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
         print(f"Archivo {nombre_archivo_descargado} guardado en: {ruta_archivo_guardado}")
     import pandas as pd
 
-    df = pd.read_csv(r"C:\Users\Usuario\Downloads\Datos_la_liga_preparados_entrenamiento.csv")
+    df = pd.read_parquet(ruta_archivo_guardado, engine = "pyarrow")
     # Resetear el índice del DataFrame original
     df.reset_index(drop=True, inplace=True)
     df_original = df.copy()
-    df = df.drop(['Player', 'id'], axis=1)
+    df = df.drop(['Player', 'id', 'index', 'Off'], axis=1)
+    if arbol != True:
+        import pandas as pd
+        from sklearn.preprocessing import StandardScaler
+        col = ['Mins', 'Goals', 'Assists', 'Yel', 'Red', 'SpG', 'PS%', 'AerialsWon',
+         'MotM', 'Tackles', 'Inter', 'Fouls', 'Offsides', 'Clear', 'DeffDrb',
+         'Blocks', 'OwnG', 'KeyP', 'OffDrb', 'Fouled', 'Disp', 'UnsTch', 'AvgP',
+         'Crosses', 'LongB', 'ThrB', 'Equipo', 'position', 'age', 'nationality',
+         'height', 'marketValue', 'Año_natural', 'Titularidades', 'Suplencias',
+         'Equipo_pos', '1_año_anterior', '2_año_anterior', '3_año_anterior',
+         '4_año_anterior', '5_año_anterior']
+        df = df[col]
+        # Identifica todas las columnas numéricas excepto 'marketValue'
+        numeric_columns = df.select_dtypes(include=['int', 'float']).columns
+        numeric_columns_to_scale = numeric_columns.drop(['marketValue', 'Año_natural'])
 
-    import pandas as pd
-    from sklearn.preprocessing import StandardScaler
+        # DataFrame con solo las columnas numéricas que deseas escalar
+        df_numeric_to_scale = df[numeric_columns_to_scale]
 
-    # Identifica todas las columnas numéricas excepto 'marketValue'
-    numeric_columns = df.select_dtypes(include=['int', 'float']).columns
-    numeric_columns_to_scale = numeric_columns.drop(['marketValue', 'Año_natural'])
+        # DataFrame con la columna 'marketValue' y otras columnas no numéricas
+        df_exclude_market_value = df.drop(numeric_columns_to_scale, axis=1)
 
-    # DataFrame con solo las columnas numéricas que deseas escalar
-    df_numeric_to_scale = df[numeric_columns_to_scale]
+        # Aplica StandardScaler a las columnas numéricas que deseas escalar
+        scaler = StandardScaler()
+        df_numeric_scaled = scaler.fit_transform(df_numeric_to_scale)
 
-    # DataFrame con la columna 'marketValue' y otras columnas no numéricas
-    df_exclude_market_value = df.drop(numeric_columns_to_scale, axis=1)
-
-    # Aplica StandardScaler a las columnas numéricas que deseas escalar
-    scaler = StandardScaler()
-    df_numeric_scaled = scaler.fit_transform(df_numeric_to_scale)
-
-    # Convierte el array numpy a un DataFrame
-    df_numeric_scaled = pd.DataFrame(df_numeric_scaled, columns=numeric_columns_to_scale, index=df.index)
-
-    # Combina los DataFrames escalados y no escalados
-    df = pd.concat([df_numeric_scaled, df_exclude_market_value], axis=1)
+        # Convierte el array numpy a un DataFrame
+        df_numeric_scaled = pd.DataFrame(df_numeric_scaled, columns=numeric_columns_to_scale)
+        print(df_numeric_scaled.columns)
+        # Combina los DataFrames escalados y no escalados
+        df = pd.concat([df_numeric_scaled, df_exclude_market_value], axis=1)
 
     from sklearn.preprocessing import OneHotEncoder
     import pandas as pd
@@ -98,7 +105,7 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
 
     df1 = df[df['marketValue'] < 80000000].copy()
     c = ['Mins', 'Goals', 'Assists', 'Yel', 'Red', 'SpG', 'PS%', 'AerialsWon', 'MotM', 'Tackles', 'Inter',
-         'Fouls', 'Offsides', 'Clear', 'DeffDrb', 'Blocks', 'OwnG', 'KeyP', 'OffDrb', 'Fouled', 'Off',
+         'Fouls', 'Offsides', 'Clear', 'DeffDrb', 'Blocks', 'OwnG', 'KeyP', 'OffDrb', 'Fouled',
          'Disp', 'UnsTch', 'AvgP', 'Crosses', 'LongB', 'ThrB', 'age', 'height', 'Año_natural', 'Titularidades',
          'Suplencias', 'Equipo_pos', '1_año_anterior', '2_año_anterior', '3_año_anterior', '4_año_anterior',
          '5_año_anterior', 'Equipo_Athletic Bilbao', 'Equipo_Atlético de Madrid', 'Equipo_CA Osasuna',
@@ -133,7 +140,6 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
     # Reordenar las columnas
     datos = df1[c]
     datos = datos.reset_index()
-    datos = datos.drop('index', axis=1)
     if lineal == False:
         X = datos.iloc[:, :-1]
         y = datos.iloc[:, -1]
@@ -148,4 +154,4 @@ def preprocesamiento(arbol: bool, variables_X: list, lineal: bool):
     X_train = X.drop(columns=['Año_natural'])
     y_train = y
     RANDOM_STATE = 83
-    return X_train, y_train, RANDOM_STATE
+    return X_train, y_train, RANDOM_STATE, scaler
