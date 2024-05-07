@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Usuario/Documents/Alvaro/Carrera/2-Segundo/Segundo%20Cuatrimestre/Proyecto%20de%20Datos%201/PROYECTO-DATOS/src/evaluaci%C3%B3n/mlruns/0/53b0c9bd2508421aa7a170d2267c621b/artifacts
+end_time: 1714764955235
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 53b0c9bd2508421aa7a170d2267c621b
+run_name: MODELO FINAL ESCALADO
+run_uuid: 53b0c9bd2508421aa7a170d2267c621b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1714764955213
+status: 3
+tags: []
+user_id: Usuario
